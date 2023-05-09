@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const otp = async (phoneNumber) => {
-    const response = await axios.post(`http://localhost:8081/send-otp?phoneNumber=${phoneNumber}`)
+    const response = await axios.post(`http://localhost:8081/send-otp-for-forgot-password?phoneNumber=${phoneNumber}`)
     return response.data
     
 }

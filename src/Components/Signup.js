@@ -26,11 +26,18 @@ function SignUpPage() {
   const signUpHandler = async (mobileNumber) => {
     try {
       const flag = await signUpService.signup(mobileNumber);
-      if (flag) {
+      if (flag===1) {
         
         alert("OTP send Successfully to your Register Mobile Number!");
-      } else {
-        alert("Error occured, please try again!");
+      } 
+      else 
+      {
+          if(flag===0) alert("Mobile number is empty!");
+          else if(flag===2)
+          {
+            alert("You already have account with this mobile number");
+            navigate("/login"); 
+          }
       }
     } catch (exception) {
       alert("Error occured, please try again!");
@@ -41,15 +48,16 @@ function SignUpPage() {
     
     try {
       const flag = await signUpService.register(userDetails,otp);
-      if (flag) {
+      if (flag===1) {
         alert("OTP verfied Successfully.Your Registration is successful");
         navigate("/login");
 
       } else {
-        alert("Invalid OTP, please try again!");
+        if(flag===0) alert("Invalid OTP, please try again!");
+        else if(flag===2)alert("You already have account with this mobile number");
       }
     } catch (exception) {
-      alert("Invalid OTP, please try again!");
+      alert("Error occcured, please try again!");
     }
   };
   
@@ -196,7 +204,7 @@ function SignUpPage() {
                     labelClass="text-white"
                     label="Enter OTP"
                     id="formControlLg"
-                    type="text"
+                    type="password"
                     size="lg"
                     autoComplete="off"
                     style={{ color: "white" }}

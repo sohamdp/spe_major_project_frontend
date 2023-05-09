@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import "./Stylesheet/Login.css";
 import { NavLink } from "react-router-dom";
 import loginService from "../Service/LoginService";
@@ -15,10 +15,12 @@ import {
 import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
-  const [user, setUser] = useState([]); 
+  const [user, setUser] = useState(null); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+
 
   const loginHandler = async (loginCredentials) => {
     try {
@@ -27,6 +29,7 @@ function LoginPage() {
         setUser(userObject);
         alert("Log in successfully");
         navigate("/moviespage");
+        
       } else {
         alert("Log in failed, check username and password entered");
       }
