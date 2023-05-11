@@ -1,6 +1,5 @@
 import { React } from "react";
 import { useNavigate } from "react-router-dom";
-import {BiUserCircle} from 'react-icons/bi';
 
 function NavBar() {
 
@@ -28,7 +27,6 @@ const logout = () => {
             </a>
           </li>
         </ul>
-        {/* <b className='headerTextRight headerUser' style={{background:"none", color:"green", textTransform: 'capitalize', fontSize:"18px", position:"relative" ,marginRight:"35px"}}><BiUserCircle size={30} className='userIcon'/> &ensp;<b style={{position:"relative"}}>{"soham"} {"pawar"}</b> </b> */}
           <button className="btn btn-outline-success my-2 my-sm-0" onClick={logout}>Logout</button>
       </nav>
     </div>
