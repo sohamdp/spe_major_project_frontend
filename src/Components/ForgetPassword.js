@@ -21,13 +21,20 @@ function ForgetPassword() {
 
   const ForgetPasswordHandler = async (mobileNumber) =>{
     try {
-      const flag = await OtpService.otp(mobileNumber,otp);
-      if (flag) {
+      const flag = await OtpService.otp(mobileNumber);
+      if (flag===1) {
         
         alert("OTP send Successfully to your Register Mobile Number!");
-      } else {
-        alert("Error occured, please try again!");
       }
+       else 
+      {
+          if(flag===0)alert("Mobile number is empty!");
+          else if(flag===2)
+          {
+            alert("user is not exist please register first");
+            navigate("/signup");
+          }     
+     }
     } catch (exception) {
       alert("Error occured, please try again!");
     }
@@ -51,8 +58,8 @@ function ForgetPassword() {
     setMobileNumber(e.target.value);
   };
 
-  const clickHere = (e) => {
-    e.preventDefault();
+  const clickHere = () => {
+
     ForgetPasswordHandler(mobileNumber);
     setShowOtpVerification(true);
   };
@@ -115,7 +122,7 @@ function ForgetPassword() {
                     labelClass="text-white"
                     label="Enter OTP"
                     id="formControlLg"
-                    type="text"
+                    type="password"
                     size="lg"
                     autoComplete="off"
                     style={{ color: "white" }}

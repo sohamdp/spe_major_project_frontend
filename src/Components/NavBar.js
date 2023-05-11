@@ -1,5 +1,6 @@
 import { React } from "react";
 import { useNavigate } from "react-router-dom";
+import {BiUserCircle} from 'react-icons/bi';
 
 function NavBar() {
 
@@ -7,6 +8,12 @@ function NavBar() {
   const homehandler= ()=>{
     navigate("/moviespage");
 }
+
+const logout = () => {
+  window.localStorage.removeItem('sessionUser')
+  navigate("/login");
+}
+
 
   return (
     <div>
@@ -21,21 +28,8 @@ function NavBar() {
             </a>
           </li>
         </ul>
-        <form className="form-inline my-2 my-lg-0">
-          <input
-            className="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-            style={{ width: "300px" }}
-          />
-          <button
-            className="btn btn-outline-success my-2 my-sm-0"
-            type="submit"
-          >
-            Search
-          </button>
-        </form>
+        {/* <b className='headerTextRight headerUser' style={{background:"none", color:"green", textTransform: 'capitalize', fontSize:"18px", position:"relative" ,marginRight:"35px"}}><BiUserCircle size={30} className='userIcon'/> &ensp;<b style={{position:"relative"}}>{"soham"} {"pawar"}</b> </b> */}
+          <button className="btn btn-outline-success my-2 my-sm-0" onClick={logout}>Logout</button>
       </nav>
     </div>
   );
