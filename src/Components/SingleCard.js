@@ -1,6 +1,6 @@
 import { React } from "react";
-import "./Stylesheet/Login.css";
-import "./Stylesheet/Card.css";
+import "../CSS/Login.css";
+import "../CSS/Card.css";
 import {useNavigate} from 'react-router-dom';
 import {
   MDBCard,

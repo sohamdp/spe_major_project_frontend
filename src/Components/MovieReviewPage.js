@@ -1,6 +1,6 @@
 import { React, useState,useEffect } from "react";
 import NavBar from "./NavBar";
-import "./Stylesheet/MovieReview.css";
+import "../CSS/MovieReview.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import movieService from "../Service/MovieService";
 import Comment from "./Comment";

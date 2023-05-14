@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import "./Stylesheet/Signup.css";
+import "../CSS/Signup.css";
 import signUpService from "../Service/SignUpService";
 import {useNavigate} from "react-router-dom";
 import {
